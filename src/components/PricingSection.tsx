@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 
 const PricingSection = () => {
-  const openWhatsApp = () => {
-    window.open('https://wa.me/923343233883', '_blank');
+  const openWhatsAppWithPlan = (planName: string, price: string) => {
+    const message = `Hello, I'm interested in the ${planName} Plan for ${price} (with 50% OFF for new customers). Could you provide more details?`;
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/923343233883?text=${encodedMessage}`, '_blank');
   };
 
   const openEmail = () => {
@@ -25,7 +27,10 @@ const PricingSection = () => {
         <div className="grid md:grid-cols-3 gap-8">
           {/* Basic Plan */}
           <div className="border border-gray-200 rounded-xl overflow-hidden transition-transform hover:shadow-lg hover:-translate-y-1">
-            <div className="bg-blue-deep text-white p-6 text-center">
+            <div className="bg-blue-deep text-white p-6 text-center relative">
+              <div className="absolute top-0 right-0 bg-yellow-400 text-xs font-bold text-blue-deep px-2 py-1 rotate-12 mt-3 mr-2">
+                50% OFF
+              </div>
               <h3 className="text-xl font-bold">Basic</h3>
               <div className="mt-4">
                 <span className="text-3xl font-bold">Rs. 5,000</span>
@@ -35,7 +40,7 @@ const PricingSection = () => {
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
-                  <span>Single page website</span>
+                  <span>Single page with 4 sections</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
@@ -43,7 +48,15 @@ const PricingSection = () => {
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
-                  <span>WhatsApp integration</span>
+                  <span>WhatsApp integration + popup button</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
+                  <span>Social media links</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
+                  <span>10 product images with price details</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
@@ -55,7 +68,7 @@ const PricingSection = () => {
                 </li>
               </ul>
               <div className="mt-6">
-                <Button onClick={openWhatsApp} className="w-full">Get Started</Button>
+                <Button onClick={() => openWhatsAppWithPlan("Basic", "Rs. 5,000")} className="w-full">Get Started</Button>
               </div>
             </div>
           </div>
@@ -67,7 +80,10 @@ const PricingSection = () => {
                 POPULAR
               </div>
             </div>
-            <div className="bg-blue-accent text-white p-6 text-center">
+            <div className="bg-blue-accent text-white p-6 text-center relative">
+              <div className="absolute top-0 left-0 bg-yellow-400 text-xs font-bold text-blue-deep px-2 py-1 -rotate-12 mt-3 ml-2">
+                50% OFF
+              </div>
               <h3 className="text-xl font-bold">Standard</h3>
               <div className="mt-4">
                 <span className="text-3xl font-bold">Rs. 7,500</span>
@@ -77,7 +93,7 @@ const PricingSection = () => {
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
-                  <span>Single page with extended sections</span>
+                  <span>Single page with 6-7 sections</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
@@ -86,6 +102,14 @@ const PricingSection = () => {
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
                   <span>Contact form + WhatsApp integration</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
+                  <span>Social media links + popup button</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
+                  <span>15 product images with price details</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
@@ -101,14 +125,17 @@ const PricingSection = () => {
                 </li>
               </ul>
               <div className="mt-6">
-                <Button onClick={openWhatsApp} className="w-full bg-blue-accent hover:bg-blue-accent/90">Get Started</Button>
+                <Button onClick={() => openWhatsAppWithPlan("Standard", "Rs. 7,500")} className="w-full bg-blue-accent hover:bg-blue-accent/90">Get Started</Button>
               </div>
             </div>
           </div>
 
           {/* Premium Plan */}
           <div className="border border-gray-200 rounded-xl overflow-hidden transition-transform hover:shadow-lg hover:-translate-y-1">
-            <div className="bg-blue-deep text-white p-6 text-center">
+            <div className="bg-blue-deep text-white p-6 text-center relative">
+              <div className="absolute top-0 right-0 bg-yellow-400 text-xs font-bold text-blue-deep px-2 py-1 rotate-12 mt-3 mr-2">
+                50% OFF
+              </div>
               <h3 className="text-xl font-bold">Premium</h3>
               <div className="mt-4">
                 <span className="text-3xl font-bold">Rs. 10,000</span>
@@ -118,7 +145,7 @@ const PricingSection = () => {
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
-                  <span>Feature-rich website</span>
+                  <span>Single page with 8-9 sections</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
@@ -130,7 +157,7 @@ const PricingSection = () => {
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
-                  <span>Payment gateway integration (optional)</span>
+                  <span>25 product images with price details</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
@@ -140,17 +167,25 @@ const PricingSection = () => {
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
                   <span>Custom domain setup assistance</span>
                 </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
+                  <span>SEO optimization + performance tuning</span>
+                </li>
               </ul>
               <div className="mt-6">
-                <Button onClick={openEmail} className="w-full">Get Started</Button>
+                <Button onClick={() => openWhatsAppWithPlan("Premium", "Rs. 10,000")} className="w-full">Get Started</Button>
               </div>
             </div>
           </div>
         </div>
         
         <div className="mt-8 text-center text-gray-600">
-          <p className="font-medium">Payment Methods: JazzCash & EasyPaisa - 03214684403</p>
-          <p>💰 Payment Terms: You'll only be charged after full satisfaction—once the website is complete, works as expected, and you're happy with the final product.</p>
+          <p className="font-medium">Payment Method: EasyPaisa - 03214684403</p>
+          <div className="mt-4 p-4 bg-gray-50 rounded-lg inline-block">
+            <img src="https://i.postimg.cc/CLhDXWqB/easypaisa-logo.png" alt="EasyPaisa" className="h-8 inline-block mr-2" />
+            <span className="font-medium">Easy and secure payments</span>
+          </div>
+          <p className="mt-4">💰 Payment Terms: You'll only be charged after full satisfaction—once the website is complete, works as expected, and you're happy with the final product.</p>
         </div>
       </div>
     </section>

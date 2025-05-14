@@ -12,6 +12,7 @@ import WhyChooseSection from '@/components/WhyChooseSection';
 import PricingSection from '@/components/PricingSection';
 import RequirementsSection from '@/components/RequirementsSection';
 import DiscountPromotion from '@/components/DiscountPromotion';
+import BrandingSection from '@/components/BrandingSection';
 
 const Index = () => {
   return (
@@ -24,6 +25,7 @@ const Index = () => {
         <ProcessSection />
         <RequirementsSection />
         <ProjectsSection />
+        <BrandingSection />
         <PricingSection />
         <ContactSection />
       </main>

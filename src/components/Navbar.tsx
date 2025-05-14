@@ -26,6 +26,7 @@ const Navbar = () => {
           <a href="#process" className="text-sm font-medium hover:text-blue-accent">How We Work</a>
           <a href="#projects" className="text-sm font-medium hover:text-blue-accent">Projects</a>
           <a href="#why-choose" className="text-sm font-medium hover:text-blue-accent">Why Choose Us</a>
+          <a href="#branding" className="text-sm font-medium hover:text-blue-accent">Branding</a>
           <a href="#pricing" className="text-sm font-medium hover:text-blue-accent">Pricing</a>
           <a href="#contact" className="text-sm font-medium hover:text-blue-accent">Contact</a>
         </div>
@@ -53,6 +54,7 @@ const Navbar = () => {
             <a href="#process" className="text-sm font-medium" onClick={() => setIsMenuOpen(false)}>How We Work</a>
             <a href="#projects" className="text-sm font-medium" onClick={() => setIsMenuOpen(false)}>Projects</a>
             <a href="#why-choose" className="text-sm font-medium" onClick={() => setIsMenuOpen(false)}>Why Choose Us</a>
+            <a href="#branding" className="text-sm font-medium" onClick={() => setIsMenuOpen(false)}>Branding</a>
             <a href="#pricing" className="text-sm font-medium" onClick={() => setIsMenuOpen(false)}>Pricing</a>
             <a href="#contact" className="text-sm font-medium" onClick={() => setIsMenuOpen(false)}>Contact</a>
             <a href="#contact">

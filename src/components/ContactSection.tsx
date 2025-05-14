@@ -1,11 +1,66 @@
 
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { MessageSquare, Phone, Mail } from "lucide-react";
+import { MessageSquare, Phone, Mail, Facebook, ExternalLink } from "lucide-react";
+import { toast } from "@/components/ui/use-toast";
 
 const ContactSection = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formRef.current) return;
+    
+    setIsSubmitting(true);
+    
+    const formData = new FormData(formRef.current);
+    const formProps = Object.fromEntries(formData);
+    
+    try {
+      // Using EmailJS
+      const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          service_id: "service_kqtecnn",
+          template_id: "template_tv45p3s",
+          user_id: "H357zAP8V__yP5H8e",
+          template_params: {
+            from_name: formProps.name,
+            from_email: formProps.email,
+            phone: formProps.phone,
+            message: formProps.message,
+          }
+        }),
+      });
+      
+      if (response.ok) {
+        toast({
+          title: "Message sent!",
+          description: "We'll get back to you as soon as possible.",
+        });
+        formRef.current.reset();
+      } else {
+        throw new Error("Failed to send email");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Something went wrong",
+        description: "Please try again later or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="section bg-white">
       <div className="container">
@@ -22,13 +77,15 @@ const ContactSection = () => {
           <div className="bg-gray-light p-8 rounded-xl shadow-sm">
             <h3 className="heading-sm mb-6">Send Us a Message</h3>
             
-            <form className="space-y-4">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-1">Full Name</label>
                 <Input 
                   id="name" 
+                  name="name"
                   placeholder="Enter your name" 
                   className="w-full"
+                  required
                 />
               </div>
               
@@ -36,9 +93,11 @@ const ContactSection = () => {
                 <label htmlFor="email" className="block text-sm font-medium mb-1">Email Address</label>
                 <Input 
                   id="email" 
+                  name="email" 
                   type="email" 
                   placeholder="Enter your email" 
                   className="w-full"
+                  required
                 />
               </div>
               
@@ -46,8 +105,10 @@ const ContactSection = () => {
                 <label htmlFor="phone" className="block text-sm font-medium mb-1">Phone Number</label>
                 <Input 
                   id="phone" 
+                  name="phone"
                   placeholder="Enter your phone number" 
                   className="w-full"
+                  required
                 />
               </div>
               
@@ -55,14 +116,20 @@ const ContactSection = () => {
                 <label htmlFor="message" className="block text-sm font-medium mb-1">Message</label>
                 <Textarea 
                   id="message" 
+                  name="message"
                   placeholder="Tell us about your project" 
                   rows={4} 
                   className="w-full"
+                  required
                 />
               </div>
               
-              <Button className="w-full bg-blue-deep hover:bg-blue-deep/90">
-                Submit Message
+              <Button 
+                type="submit" 
+                className="w-full bg-blue-deep hover:bg-blue-deep/90"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Sending..." : "Submit Message"}
               </Button>
             </form>
           </div>
@@ -78,8 +145,8 @@ const ContactSection = () => {
                     <Phone size={20} />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-lg">Phone</h4>
-                    <p className="text-gray-600">+1 (123) 456-7890</p>
+                    <h4 className="font-semibold text-lg">Phone & WhatsApp</h4>
+                    <p className="text-gray-600">+92 334 3233883</p>
                     <p className="text-sm text-gray-500 mt-1">Available Monday to Friday, 9am - 6pm</p>
                   </div>
                 </div>
@@ -90,19 +157,53 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-lg">Email</h4>
-                    <p className="text-gray-600">info@madigitalhub.com</p>
+                    <p className="text-gray-600">alimajid03021980@gmail.com</p>
                     <p className="text-sm text-gray-500 mt-1">We respond within 24 hours</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-blue-accent/20 flex items-center justify-center text-blue-accent">
-                    <MessageSquare size={20} />
+                    <Facebook size={20} />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-lg">WhatsApp</h4>
-                    <p className="text-gray-600">+1 (123) 456-7890</p>
-                    <p className="text-sm text-gray-500 mt-1">For quick responses and updates</p>
+                    <h4 className="font-semibold text-lg">Social Media</h4>
+                    <a 
+                      href="https://www.facebook.com/share/16TyxwjKRy/" 
+                      target="_blank"
+                      rel="noopener noreferrer" 
+                      className="text-gray-600 hover:text-blue-accent transition-colors"
+                    >
+                      Facebook
+                    </a>
+                    <p className="text-sm text-gray-500 mt-1">Follow us for updates</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-blue-accent/20 flex items-center justify-center text-blue-accent">
+                    <ExternalLink size={20} />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-lg">Our Websites</h4>
+                    <div className="flex flex-col gap-1">
+                      <a 
+                        href="https://ma-digital-hub.vercel.app/" 
+                        target="_blank"
+                        rel="noopener noreferrer" 
+                        className="text-gray-600 hover:text-blue-accent transition-colors"
+                      >
+                        MA Digital Hub
+                      </a>
+                      <a 
+                        href="https://majidportfolio-fawn.vercel.app/" 
+                        target="_blank"
+                        rel="noopener noreferrer" 
+                        className="text-gray-600 hover:text-blue-accent transition-colors"
+                      >
+                        Our Portfolio
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -122,7 +223,7 @@ const ContactSection = () => {
                 </div>
               </div>
               <a 
-                href="https://wa.me/11234567890" 
+                href="https://wa.me/923343233883" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="block mt-4 bg-white text-green-500 text-center py-3 rounded-md font-medium hover:bg-green-50 transition-colors"

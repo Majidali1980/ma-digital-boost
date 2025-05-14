@@ -93,7 +93,7 @@ const PricingSection = () => {
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
-                  <span>Single page with 6-7 sections</span>
+                  <span>Single page with 5-6 sections</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
@@ -121,7 +121,7 @@ const PricingSection = () => {
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
-                  <span>SEO optimization</span>
+                  <span>User friendly interface</span>
                 </li>
               </ul>
               <div className="mt-6">
@@ -169,7 +169,7 @@ const PricingSection = () => {
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
-                  <span>SEO optimization + performance tuning</span>
+                  <span>User friendly interface</span>
                 </li>
               </ul>
               <div className="mt-6">

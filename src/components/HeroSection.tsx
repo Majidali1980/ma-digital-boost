@@ -3,6 +3,14 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
+  const openWhatsApp = () => {
+    window.open('https://wa.me/923343233883', '_blank');
+  };
+
+  const openEmail = () => {
+    window.location.href = 'mailto:alimajid03021980@gmail.com';
+  };
+
   return (
     <section id="hero" className="relative overflow-hidden bg-gradient-to-r from-blue-deep to-blue-accent py-20 md:py-28 lg:py-32">
       {/* Background stylish elements */}
@@ -25,10 +33,17 @@ const HeroSection = () => {
               and online tools that deliver real results.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{animationDelay: '0.4s'}}>
-              <Button className="bg-white text-blue-deep hover:bg-white/90 px-8 py-6 text-base">
+              <Button 
+                onClick={openWhatsApp}
+                className="bg-white text-blue-deep hover:bg-white/90 px-8 py-6 text-base"
+              >
                 Get a Free Consultation
               </Button>
-              <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white/10 px-8 py-6 text-base">
+              <Button 
+                onClick={openEmail}
+                variant="outline" 
+                className="bg-transparent border-white text-white hover:bg-white/10 px-8 py-6 text-base"
+              >
                 Let's Build Your Site
               </Button>
             </div>

@@ -111,3 +111,32 @@
     background-position: 0% 50%;
   }
 }
+
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(2deg);
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 10s linear infinite;
+}

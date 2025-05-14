@@ -20,16 +20,21 @@ const Navbar = () => {
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-6">
           <a href="#hero" className="text-sm font-medium hover:text-blue-accent">Home</a>
           <a href="#about" className="text-sm font-medium hover:text-blue-accent">About</a>
           <a href="#process" className="text-sm font-medium hover:text-blue-accent">How We Work</a>
+          <a href="#projects" className="text-sm font-medium hover:text-blue-accent">Projects</a>
+          <a href="#why-choose" className="text-sm font-medium hover:text-blue-accent">Why Choose Us</a>
+          <a href="#pricing" className="text-sm font-medium hover:text-blue-accent">Pricing</a>
           <a href="#contact" className="text-sm font-medium hover:text-blue-accent">Contact</a>
         </div>
 
         {/* CTA Button - Desktop */}
         <div className="hidden md:block">
-          <Button className="btn btn-primary px-6 py-2">Get Started</Button>
+          <a href="#contact">
+            <Button className="btn btn-primary px-6 py-2">Get Started</Button>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -46,8 +51,13 @@ const Navbar = () => {
             <a href="#hero" className="text-sm font-medium" onClick={() => setIsMenuOpen(false)}>Home</a>
             <a href="#about" className="text-sm font-medium" onClick={() => setIsMenuOpen(false)}>About</a>
             <a href="#process" className="text-sm font-medium" onClick={() => setIsMenuOpen(false)}>How We Work</a>
+            <a href="#projects" className="text-sm font-medium" onClick={() => setIsMenuOpen(false)}>Projects</a>
+            <a href="#why-choose" className="text-sm font-medium" onClick={() => setIsMenuOpen(false)}>Why Choose Us</a>
+            <a href="#pricing" className="text-sm font-medium" onClick={() => setIsMenuOpen(false)}>Pricing</a>
             <a href="#contact" className="text-sm font-medium" onClick={() => setIsMenuOpen(false)}>Contact</a>
-            <Button className="btn btn-primary w-full" onClick={() => setIsMenuOpen(false)}>Get Started</Button>
+            <a href="#contact">
+              <Button className="btn btn-primary w-full" onClick={() => setIsMenuOpen(false)}>Get Started</Button>
+            </a>
           </div>
         )}
       </div>

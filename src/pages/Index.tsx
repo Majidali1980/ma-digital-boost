@@ -8,6 +8,10 @@ import ProjectsSection from '@/components/ProjectsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import WhyChooseSection from '@/components/WhyChooseSection';
+import PricingSection from '@/components/PricingSection';
+import RequirementsSection from '@/components/RequirementsSection';
+import DiscountPromotion from '@/components/DiscountPromotion';
 
 const Index = () => {
   return (
@@ -16,12 +20,16 @@ const Index = () => {
       <main className="flex-grow">
         <HeroSection />
         <AboutSection />
+        <WhyChooseSection />
         <ProcessSection />
+        <RequirementsSection />
         <ProjectsSection />
+        <PricingSection />
         <ContactSection />
       </main>
       <Footer />
       <WhatsAppButton />
+      <DiscountPromotion />
     </div>
   );
 };

@@ -61,6 +61,17 @@ const projects = [
   }
 ];
 
+const portfolioLinks = [
+  {
+    title: "MA Digital Hub Portfolio",
+    url: "https://ma-digital-hub.vercel.app/"
+  },
+  {
+    title: "Majid's Portfolio",
+    url: "https://majidportfolio-fawn.vercel.app/"
+  }
+];
+
 const ProjectsSection = () => {
   return (
     <section id="projects" className="section bg-gray-light py-12 md:py-16">
@@ -70,13 +81,20 @@ const ProjectsSection = () => {
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Check out some of our recent work. Click on any project to view the live site.
           </p>
-          <div className="mt-4">
+          <div className="mt-4 flex flex-wrap gap-4 justify-center">
             <Button 
               variant="outline" 
               className="border-blue-accent text-blue-accent hover:bg-blue-accent/10 font-medium"
-              onClick={() => window.open("https://ma-digital-hub-projects.lovable.app", "_blank")}
+              onClick={() => window.open("https://ma-digital-hub.vercel.app", "_blank")}
             >
-              <Eye className="mr-2 h-4 w-4" /> View All Our Websites
+              <Eye className="mr-2 h-4 w-4" /> MA Digital Hub Portfolio
+            </Button>
+            <Button 
+              variant="outline" 
+              className="border-blue-accent text-blue-accent hover:bg-blue-accent/10 font-medium"
+              onClick={() => window.open("https://majidportfolio-fawn.vercel.app", "_blank")}
+            >
+              <Eye className="mr-2 h-4 w-4" /> Majid's Portfolio
             </Button>
           </div>
         </div>

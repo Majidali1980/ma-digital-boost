@@ -1,5 +1,7 @@
 
 import React from 'react';
+import { Button } from "@/components/ui/button";
+import { Eye } from "lucide-react";
 
 const projects = [
   {
@@ -61,16 +63,25 @@ const projects = [
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="section bg-gray-light">
+    <section id="projects" className="section bg-gray-light py-12 md:py-16">
       <div className="container">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="heading-lg mb-4 text-blue-deep">Our Latest Projects</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Check out some of our recent work. Click on any project to view the live site.
           </p>
+          <div className="mt-4">
+            <Button 
+              variant="outline" 
+              className="border-blue-accent text-blue-accent hover:bg-blue-accent/10 font-medium"
+              onClick={() => window.open("https://ma-digital-hub-projects.lovable.app", "_blank")}
+            >
+              <Eye className="mr-2 h-4 w-4" /> View All Our Websites
+            </Button>
+          </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <a 
               key={index}

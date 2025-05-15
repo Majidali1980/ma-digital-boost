@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 
 const PricingSection = () => {
-  const openWhatsAppWithPlan = (planName: string, price: string) => {
-    const message = `Hello, I'm interested in the ${planName} Plan for ${price} (with 50% OFF for new customers). Could you provide more details?`;
+  const openWhatsAppWithPlan = (planName: string) => {
+    const message = `Hello, I'm interested in the ${planName} Plan (with 50% OFF for new customers). Could you provide more details?`;
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/923343233883?text=${encodedMessage}`, '_blank');
   };
@@ -15,9 +15,9 @@ const PricingSection = () => {
   };
   
   return (
-    <section id="pricing" className="section bg-white">
+    <section id="pricing" className="section bg-white py-12 md:py-16">
       <div className="container">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h2 className="heading-lg mb-4 text-blue-deep">Our Pricing Plans</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Choose the perfect plan that fits your business needs
@@ -32,9 +32,6 @@ const PricingSection = () => {
                 50% OFF
               </div>
               <h3 className="text-xl font-bold">Basic</h3>
-              <div className="mt-4">
-                <span className="text-3xl font-bold">Rs. 5,000</span>
-              </div>
             </div>
             <div className="p-6">
               <ul className="space-y-3">
@@ -68,7 +65,7 @@ const PricingSection = () => {
                 </li>
               </ul>
               <div className="mt-6">
-                <Button onClick={() => openWhatsAppWithPlan("Basic", "Rs. 5,000")} className="w-full">Get Started</Button>
+                <Button onClick={() => openWhatsAppWithPlan("Basic")} className="w-full">Get Started</Button>
               </div>
             </div>
           </div>
@@ -85,9 +82,6 @@ const PricingSection = () => {
                 50% OFF
               </div>
               <h3 className="text-xl font-bold">Standard</h3>
-              <div className="mt-4">
-                <span className="text-3xl font-bold">Rs. 7,500</span>
-              </div>
             </div>
             <div className="p-6">
               <ul className="space-y-3">
@@ -125,7 +119,7 @@ const PricingSection = () => {
                 </li>
               </ul>
               <div className="mt-6">
-                <Button onClick={() => openWhatsAppWithPlan("Standard", "Rs. 7,500")} className="w-full bg-blue-accent hover:bg-blue-accent/90">Get Started</Button>
+                <Button onClick={() => openWhatsAppWithPlan("Standard")} className="w-full bg-blue-accent hover:bg-blue-accent/90">Get Started</Button>
               </div>
             </div>
           </div>
@@ -137,9 +131,6 @@ const PricingSection = () => {
                 50% OFF
               </div>
               <h3 className="text-xl font-bold">Premium</h3>
-              <div className="mt-4">
-                <span className="text-3xl font-bold">Rs. 10,000</span>
-              </div>
             </div>
             <div className="p-6">
               <ul className="space-y-3">
@@ -173,19 +164,18 @@ const PricingSection = () => {
                 </li>
               </ul>
               <div className="mt-6">
-                <Button onClick={() => openWhatsAppWithPlan("Premium", "Rs. 10,000")} className="w-full">Get Started</Button>
+                <Button onClick={() => openWhatsAppWithPlan("Premium")} className="w-full">Get Started</Button>
               </div>
             </div>
           </div>
         </div>
         
         <div className="mt-8 text-center text-gray-600">
-          <p className="font-medium">Payment Method: EasyPaisa - 03214684403</p>
-          <div className="mt-4 p-4 bg-gray-50 rounded-lg inline-block">
+          <div className="mt-2 p-3 bg-gray-50 rounded-lg inline-block">
             <img src="https://i.postimg.cc/CLhDXWqB/easypaisa-logo.png" alt="EasyPaisa" className="h-8 inline-block mr-2" />
             <span className="font-medium">Easy and secure payments</span>
           </div>
-          <p className="mt-4">💰 Payment Terms: You'll only be charged after full satisfaction—once the website is complete, works as expected, and you're happy with the final product.</p>
+          <p className="mt-3">💰 Payment Terms: You'll only be charged after full satisfaction—once the website is complete, works as expected, and you're happy with the final product.</p>
         </div>
       </div>
     </section>

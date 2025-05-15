@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Carousel,
   CarouselContent,
@@ -78,7 +79,7 @@ const WhyChooseSection = () => {
         </Carousel>
 
         <div className="mt-10 text-center">
-          <a href="/service-details" className="btn btn-primary px-6 py-3 rounded-md">View All Service Details</a>
+          <Link to="/service-details" className="btn btn-primary px-6 py-3 rounded-md">View All Service Details</Link>
         </div>
       </div>
     </section>

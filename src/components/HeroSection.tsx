@@ -56,7 +56,7 @@ const HeroSection = () => {
               className="mt-6 flex items-center text-white/80 hover:text-white transition-colors group"
             >
               <Info className="w-4 h-4 mr-2" />
-              <span className="text-sm underline-offset-4 group-hover:underline">See what's included in our service</span>
+              <span className="text-sm underline-offset-4 group-hover:underline">Here's What You Get</span>
             </button>
           </div>
           

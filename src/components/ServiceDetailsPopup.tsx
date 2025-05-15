@@ -3,7 +3,6 @@ import React from 'react';
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
@@ -19,10 +18,7 @@ const ServiceDetailsPopup = ({ open, onOpenChange }: ServiceDetailsPopupProps) =
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-blue-deep">What You Get</DialogTitle>
-          <DialogDescription className="text-base">
-            Explore the complete range of our web development services
-          </DialogDescription>
+          <DialogTitle className="text-2xl font-bold text-blue-deep">Here's What You Get</DialogTitle>
         </DialogHeader>
         
         <div className="space-y-6 mt-4">
@@ -136,6 +132,12 @@ const ServiceDetailsPopup = ({ open, onOpenChange }: ServiceDetailsPopupProps) =
                   <Check className="h-3 w-3 text-blue-deep" />
                 </div>
                 <span>Up to 3–5 revisions included</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 rounded-full bg-blue-accent/20 flex items-center justify-center">
+                  <Check className="h-3 w-3 text-blue-deep" />
+                </div>
+                <span>YouTube channel art & thumbnails</span>
               </div>
             </div>
           </div>

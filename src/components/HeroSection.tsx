@@ -1,8 +1,12 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
+import ServiceDetailsPopup from './ServiceDetailsPopup';
+import { Info } from 'lucide-react';
 
 const HeroSection = () => {
+  const [detailsOpen, setDetailsOpen] = useState(false);
+  
   const openWhatsApp = () => {
     window.open('https://wa.me/923343233883', '_blank');
   };
@@ -47,6 +51,13 @@ const HeroSection = () => {
                 Let's Build Your Site
               </Button>
             </div>
+            <button 
+              onClick={() => setDetailsOpen(true)} 
+              className="mt-6 flex items-center text-white/80 hover:text-white transition-colors group"
+            >
+              <Info className="w-4 h-4 mr-2" />
+              <span className="text-sm underline-offset-4 group-hover:underline">See what's included in our service</span>
+            </button>
           </div>
           
           <div className="hidden md:block relative">
@@ -68,6 +79,9 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+      
+      {/* Service Details Popup */}
+      <ServiceDetailsPopup open={detailsOpen} onOpenChange={setDetailsOpen} />
     </section>
   );
 };

@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Palette, Image, FileImage, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Palette, Image, FileImage, Instagram, Facebook, Twitter, Youtube } from 'lucide-react';
 
 const BrandingSection = () => {
   const openWhatsApp = () => {
@@ -21,7 +21,7 @@ const BrandingSection = () => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <Card className="border-0 shadow-sm hover:shadow-md transition-shadow">
             <CardHeader className="pb-2">
               <div className="w-12 h-12 rounded-full bg-blue-accent/20 flex items-center justify-center text-blue-accent mb-4">
@@ -105,6 +105,48 @@ const BrandingSection = () => {
               <p className="text-blue-deep font-medium">Price upon request</p>
             </CardFooter>
           </Card>
+          
+          <Card className="border-0 shadow-sm hover:shadow-md transition-shadow">
+            <CardHeader className="pb-2">
+              <div className="w-12 h-12 rounded-full bg-blue-accent/20 flex items-center justify-center text-blue-accent mb-4">
+                <Youtube size={24} />
+              </div>
+              <CardTitle>YouTube Channel Art</CardTitle>
+              <CardDescription>Professional channel banners and profile images</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm">
+                <li>✓ Custom channel banners</li>
+                <li>✓ Profile images</li>
+                <li>✓ Branded elements</li>
+                <li>✓ Optimized for all devices</li>
+              </ul>
+            </CardContent>
+            <CardFooter>
+              <p className="text-blue-deep font-medium">Price upon request</p>
+            </CardFooter>
+          </Card>
+          
+          <Card className="border-0 shadow-sm hover:shadow-md transition-shadow">
+            <CardHeader className="pb-2">
+              <div className="w-12 h-12 rounded-full bg-blue-accent/20 flex items-center justify-center text-blue-accent mb-4">
+                <Youtube size={24} />
+              </div>
+              <CardTitle>YouTube Thumbnails</CardTitle>
+              <CardDescription>Eye-catching thumbnails that drive clicks and views</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm">
+                <li>✓ High-impact designs</li>
+                <li>✓ Attention-grabbing text</li>
+                <li>✓ Optimized for search</li>
+                <li>✓ Template creation</li>
+              </ul>
+            </CardContent>
+            <CardFooter>
+              <p className="text-blue-deep font-medium">Price upon request</p>
+            </CardFooter>
+          </Card>
         </div>
         
         <div className="mt-12 text-center">
@@ -131,6 +173,10 @@ const BrandingSection = () => {
               <div className="flex items-center gap-2 text-sm bg-gray-50 px-3 py-2 rounded-lg">
                 <Image size={18} className="text-green-600" />
                 <span>Banner Designs</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm bg-gray-50 px-3 py-2 rounded-lg">
+                <Youtube size={18} className="text-red-600" />
+                <span>YouTube Content</span>
               </div>
             </div>
             <Button onClick={openWhatsApp} className="font-medium">
